@@ -1,3 +1,4 @@
+import pandas as pd 
 
 def s_mavg(dataset, i, n):
 	"""
@@ -31,7 +32,7 @@ def w_mavg(dataset, i, n):
 	else:
 		return (sum(dataset[(i-n+1):(i+1)])/n)
 
-def exp_mavg(dataset, i, n):
+def exp_mavg(dataset, n):
 	"""
 	initial implementation of exponential moving average
 
@@ -41,4 +42,4 @@ def exp_mavg(dataset, i, n):
 	:returns: exponential moving avg value at time i 
 	:rtype: float
 	"""
-	pass
+	return pd.ewma(dataset, com=(n-1)/2)
